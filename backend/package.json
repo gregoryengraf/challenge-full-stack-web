@@ -6,7 +6,13 @@
   "scripts": {
     "start": "ts-node-dev --ignore-watch node_modules --respawn src/server.ts",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "migration:create": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:create -n",
+    "migration:run": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run",
+    "migration:revert": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert",
+    "schema:drop": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js schema:drop",
+    "seed:run": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed"
   },
   "author": "Gregory Engraf",
   "license": "ISC",
@@ -22,10 +28,16 @@
     "eslint-plugin-import-helpers": "^1.2.1",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2",
-    "ts-node-dev": "^1.1.8",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.8.1",
+    "typeorm": "^0.2.31"
   }
 }

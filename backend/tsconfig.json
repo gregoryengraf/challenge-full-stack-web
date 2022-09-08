@@ -12,6 +12,10 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@migrations/*": ["database/migrations/*"],
+      "@modules/*": ["modules/*"]
+    }
   }
 }
