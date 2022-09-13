@@ -1,14 +1,13 @@
 <template>
   <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline text-uppercase text-center">
+        <span>+ A </span>
+        <span class="font-weight-light">Educação</span>
+      </v-toolbar-title>
+    </v-toolbar>
     <v-main>
       <v-container>
-        <v-row class="text-center">
-          <v-col cols="12">
-            <v-app-bar color="primary">
-              <v-app-bar-title>Datum challenge</v-app-bar-title>
-            </v-app-bar>
-          </v-col>
-        </v-row>
         <v-row>
           <v-col cols="12">
             <router-view></router-view>

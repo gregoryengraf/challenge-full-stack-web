@@ -1,13 +1,10 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="10">
-        <v-text-field>
-          <v-icon icon="mdi-magnify"></v-icon>
-        </v-text-field>
-      </v-col>
-      <v-col cols="2">
-        <v-btn class="ma-2" color="green" icon="mdi-plus"></v-btn>
+      <v-col cols="12" class="text-right">
+        <v-btn to="/create-student" color="blue light" outlined dark>
+          <v-icon dark left>mdi-plus</v-icon> estudante
+        </v-btn>
       </v-col>
     </v-row>
     <v-table>
@@ -26,11 +23,9 @@
           <td>{{ student.email }}</td>
           <td>{{ student.cpf }}</td>
           <td>{{ student.ra }}</td>
-          <td>
-            <div>
-              <v-btn class="ma-2" color="blue" icon="mdi-pencil"></v-btn>
-              <v-btn class="ma-2" color="red" icon="mdi-delete"></v-btn>
-            </div>
+          <td class="text-right">
+            <v-btn class="ma-2" color="blue" icon="mdi-pencil"></v-btn>
+            <v-btn class="ma-2" color="red" icon="mdi-delete"></v-btn>
           </td>
         </tr>
       </tbody>
