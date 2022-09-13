@@ -1,11 +1,12 @@
 import { Router } from "express";
 
 import createStudentController from "../useCases/createStudent";
+import listStudentController from "../useCases/listStudent";
 
 const studentRoutes = Router();
 
 studentRoutes.get("/", (req, res) => {
-  return res.send("student list");
+  return listStudentController().handle(req, res);
 });
 
 studentRoutes.post("/", (req, res) => {

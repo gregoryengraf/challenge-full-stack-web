@@ -29,4 +29,9 @@ export class StudentRepository implements IStudentRepository {
     const student = await this.ormRepository.findOne(ra);
     return student;
   }
+
+  async list(): Promise<StudentEntity[] | []> {
+    const students = await this.ormRepository.find();
+    return students;
+  }
 }

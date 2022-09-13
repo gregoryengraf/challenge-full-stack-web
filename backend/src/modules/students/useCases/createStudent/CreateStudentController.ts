@@ -12,11 +12,15 @@ export class CreateStudentController {
   async handle(req: Request, res: Response): Promise<Response> {
     const { name, email, cpf, ra } = req.body;
 
-    if (!name || !email || !cpf || !ra) {
-      return res.status(400).json("All data must be filled");
-    }
+    try {
+      if (!name || !email || !cpf || !ra) {
+        return res.status(400).json("All data must be filled");
+      }
 
-    await this.createStudentUseCase.execute({ name, email, cpf, ra });
+      await this.createStudentUseCase.execute({ name, email, cpf, ra });
+    } catch (e) {
+      return res.status(400).json(e);
+    }
 
     return res.status(201).send();
   }
