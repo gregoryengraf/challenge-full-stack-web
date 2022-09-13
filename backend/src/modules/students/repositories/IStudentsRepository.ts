@@ -11,5 +11,5 @@ export interface IStudentRepositoryDTO {
 
 export interface IStudentRepository {
   create({ name, email, cpf, ra }: IStudentRepositoryDTO): Promise<void>;
-  list(): Promise<Student[]>;
+  findByRa(ra: string): Promise<Student | undefined>;
 }

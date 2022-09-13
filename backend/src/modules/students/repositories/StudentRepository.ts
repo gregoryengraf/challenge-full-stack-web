@@ -1,28 +1,32 @@
 import { getRepository, Repository } from "typeorm";
 
-import { Student } from "../entities/student";
+import { Student as StudentEntity } from "../entities/student";
 import { IStudentRepositoryDTO, IStudentRepository } from "./IStudentsRepository";
 
 export class StudentRepository implements IStudentRepository {
-  private repository: Repository<Student>;
+  private ormRepository: Repository<StudentEntity>;
 
   constructor() {
-    this.repository = getRepository(Student);
+    this.ormRepository = getRepository(StudentEntity);
+  }
+
+  get name(): string {
+    return this.name;
   }
 
   async create({ name, email, ra, cpf }: IStudentRepositoryDTO): Promise<void> {
-    const student = this.repository.create({
+    const student = this.ormRepository.create({
       name,
       email,
       cpf,
       ra,
     });
 
-    await this.repository.save(student);
+    await this.ormRepository.save(student);
   }
 
-  async list(): Promise<Student[]> {
-    const students = await this.repository.find();
-    return students;
+  async findByRa(ra: string): Promise<StudentEntity | undefined> {
+    const student = await this.ormRepository.findOne(ra);
+    return student;
   }
 }
