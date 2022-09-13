@@ -21,11 +21,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Jose</td>
-          <td>jose@teste.com</td>
-          <td>23423423</td>
-          <td>SDF34</td>
+        <tr v-for="student in students" :key="student.id">
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.cpf }}</td>
+          <td>{{ student.ra }}</td>
           <td>
             <div>
               <v-btn class="ma-2" color="blue" icon="mdi-pencil"></v-btn>
@@ -39,7 +39,28 @@
 </template>
 
 <script>
-export default {
-  name: 'ViewStudent',
-};
+  import StudentDataService from "../services/StudentDataService";
+
+  export default {
+    name: 'ViewStudent',
+    data() {
+      return {
+        students: []
+      }
+    },
+    methods: {
+      async getStudents() {
+        await StudentDataService.getAll()
+          .then(response => {
+            this.students = response.data
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
+    },
+    mounted() {
+      this.getStudents()
+    },
+  };
 </script>
