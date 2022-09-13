@@ -1,11 +1,6 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="10">
-        <v-text-field>
-          <v-icon icon="mdi-magnify"></v-icon>
-        </v-text-field>
-      </v-col>
       <v-col cols="2">
         <v-btn class="ma-2" color="green" icon="mdi-plus"></v-btn>
       </v-col>
