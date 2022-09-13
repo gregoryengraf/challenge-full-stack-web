@@ -1,5 +1,7 @@
 import { Router } from "express";
 
+import createStudentController from "../useCases/createStudent";
+
 const studentRoutes = Router();
 
 studentRoutes.get("/", (req, res) => {
@@ -7,7 +9,7 @@ studentRoutes.get("/", (req, res) => {
 });
 
 studentRoutes.post("/", (req, res) => {
-  return res.send("Student created succcesfull");
+  return createStudentController().handle(req, res);
 });
 
 studentRoutes.put("/", (req, res) => {
