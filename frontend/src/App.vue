@@ -4,7 +4,7 @@
       <v-container>
         <v-row class="text-center">
           <v-col cols="12">
-            <v-app-bar>
+            <v-app-bar color="primary">
               <v-app-bar-title>Datum challenge</v-app-bar-title>
             </v-app-bar>
           </v-col>
