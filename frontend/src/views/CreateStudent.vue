@@ -37,6 +37,7 @@
             this.isSuccess = true;
             setTimeout(() => {
               this.isSuccess = false;
+              this.$route.to("/");
             }, 2000);
           }).catch(e => {
             console.log(e);

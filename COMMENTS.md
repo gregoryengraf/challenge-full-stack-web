@@ -65,3 +65,8 @@
   - entrar na pasta 'frontend'
   - copie o conteudo do arquivo **.env.example** para um novo arquivo **.env**
   - rodar o comando `npm run dev`
+
+
+## Prints da aplicação de frontend
+![Listagem de Alunos](/mockups/student_index.png)
+![Cadastro de Aluno](/mockups/student_create.png)
