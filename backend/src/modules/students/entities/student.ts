@@ -1,32 +1,29 @@
-export interface IStudentProps {
-  id: string;
-  name: string;
-  email: string;
-  ra: string;
-  cpf: string;
-  created_at: Date;
-}
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import { v4 as uuidV4 } from "uuid";
 
+@Entity("students")
 export class Student {
-  private props: IStudentProps;
+  @PrimaryColumn()
+  id?: string;
 
-  get name() {
-    return this.props.name;
-  }
+  @Column()
+  name: string;
 
-  get email() {
-    return this.props.email;
-  }
+  @Column()
+  email: string;
 
-  get ra() {
-    return this.props.ra;
-  }
+  @Column()
+  cpf: string;
 
-  get cpf() {
-    return this.props.cpf;
-  }
+  @Column()
+  ra: string;
 
-  constructor(props: IStudentProps) {
-    this.props = props;
+  @CreateDateColumn()
+  created_at?: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuidV4();
+    }
   }
 }
