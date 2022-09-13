@@ -34,4 +34,15 @@ export class StudentRepository implements IStudentRepository {
     const students = await this.ormRepository.find();
     return students;
   }
+
+  async update({
+    id,
+    name,
+    email,
+    cpf,
+  }: IStudentRepositoryDTO): Promise<StudentEntity | undefined> {
+    await this.ormRepository.update({ id }, { name, email, cpf });
+    const student = await this.ormRepository.findOne({ id });
+    return student;
+  }
 }
