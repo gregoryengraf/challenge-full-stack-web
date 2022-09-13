@@ -1,16 +1,16 @@
-import VueRouter from 'vue-router';
-import VStudents from '../views/Student.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import Student from '../views/Student.vue';
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: VStudents,
+    component: Student,
   }
 ];
 
-const router = VueRouter.createRouter({
-  history: VueRouter.createWebHashHistory(),
+const router = createRouter({
+  history: createWebHistory(),
   routes,
 })
 

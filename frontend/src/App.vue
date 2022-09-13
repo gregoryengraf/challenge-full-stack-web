@@ -9,24 +9,18 @@
             </v-app-bar>
           </v-col>
         </v-row>
+        <v-row>
+          <v-col cols="12">
+            <router-view></router-view>
+          </v-col>
+        </v-row>
       </v-container>
-      <HelloWorld/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
+  name: 'App'
 }
 </script>
